@@ -1,22 +1,22 @@
 [
    {
       "id": 1,
-      "first_name": "Jason",
-      "last_name": "Statham",
+      "firstName": "Jason",
+      "lastName": "Statham",
       "gender": "Masculino",
-      "type_blood": "O+",
-      "enabled_to_donate": true,
+      "typeBlood": "O+",
+      "enabledToDonate": true,
       "commune": "Shirebrook",
       "donations": 3,
       "email": "json.stham@gmail.com"
    },
    {
       "id": 2,
-      "first_name": "Tecnico",
-      "last_name": "Enfermero",
+      "firstName": "Tecnico",
+      "lastName": "Enfermero",
       "gender": "Masculino",
-      "type_blood": "O+",
-      "enabled_to_donate": false,
+      "typeBlood": "O+",
+      "enabledToDonate": false,
       "commune": "Loncoche",
       "donations": 0,
       "email": "tecnico.enfermero@gmail.com"

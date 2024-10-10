@@ -39,8 +39,8 @@
       "id": 4,
       "name": "Hospital Panguipulli",
       "schedule": {
-         "start_time": "2:00 PM",
-         "end_time": "06:00 PM"
+         "startTime": "2:00 PM",
+         "endTime": "06:00 PM"
       },
       "state": "próximamente",
       "commune": "Panguipulli",
@@ -51,8 +51,8 @@
       "id": 5,
       "name": "Hospital Loncoche",
       "schedule": {
-         "start_time": "2:00 PM",
-         "end_time": "07:00 PM"
+         "startTime": "2:00 PM",
+         "endTime": "07:00 PM"
       },
       "state": "finalizado",
       "commune": "Loncoche",
