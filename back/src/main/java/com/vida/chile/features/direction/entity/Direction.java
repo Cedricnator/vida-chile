@@ -1,6 +1,7 @@
 package com.vida.chile.features.direction.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.vida.chile.features.city.entity.City;
 
@@ -34,6 +35,6 @@ public class Direction implements Serializable {
       joinColumns = @JoinColumn(name = "direction_id"),
       inverseJoinColumns = @JoinColumn(name = "city_id")
     )
-   private City city;
+   private List<City> city;
     
 }

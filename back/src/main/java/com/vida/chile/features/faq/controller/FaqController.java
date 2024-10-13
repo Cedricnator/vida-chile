@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vida.chile.features.faq.entity.Faq;
-import com.vida.chile.features.faq.service.FaqService;
+import com.vida.chile.features.faq.service.FaqServiceImpl;
 
 import lombok.AllArgsConstructor;
 
@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("/v1/faq")
 @AllArgsConstructor
 public class FaqController {
-    private final FaqService faqService;
+    private final FaqServiceImpl faqService;
     
     @GetMapping("/health")
     public String healthCheck(){
