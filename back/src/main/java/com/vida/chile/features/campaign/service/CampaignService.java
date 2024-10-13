@@ -1,36 +1,34 @@
-package com.vida.chile.features.campain.service;
+package com.vida.chile.features.campaign.service;
 
-import com.vida.chile.features.campain.entity.Campain;
-import com.vida.chile.features.campain.repository.CampainRepository;
+import com.vida.chile.features.campaign.entity.Campaign;
+import com.vida.chile.features.campaign.repository.CampaignRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CampainService {
-    private final CampainRepository campainRepository;
+@AllArgsConstructor
+public class CampaignService {
+    private final CampaignRepository campaignRepository;
 
-    public CampainService(CampainRepository campainRepository){
-        this.campainRepository = campainRepository;
+    public void createCampaign(Campaign campaign){
+        campaignRepository.save(campaign);
     }
 
-    public void createCampain(Campain campain){
-        campainRepository.save(campain);
+    public List<Campaign> getAllCampaign(){
+        return campaignRepository.findAll();
     }
 
-    public List<Campain> getAllCampains(){
-        return campainRepository.findAll();
+    public Campaign getCampaign(Long id){
+        return campaignRepository.findById(id).orElse(null);
     }
 
-    public Campain getCampain(Long id){
-        return campainRepository.findById(id).orElse(null);
+    public void updateCampaign(Campaign campaign){
+        campaignRepository.save(campaign);
     }
 
-    public void updateCampain(Campain campain){
-        campainRepository.save(campain);
-    }
-
-    public void deleteCampain(Long id){
-        campainRepository.deleteById(id);
+    public void deleteCampaign(Long id){
+        campaignRepository.deleteById(id);
     }
 }

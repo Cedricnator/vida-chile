@@ -1,4 +1,4 @@
-package com.vida.chile.role.entity;
+package com.vida.chile.features.role.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

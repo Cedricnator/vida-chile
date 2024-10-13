@@ -1,6 +1,6 @@
-package com.vida.chile.user.repository;
+package com.vida.chile.features.user.repository;
 
-import com.vida.chile.user.entity.User;
+import com.vida.chile.features.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

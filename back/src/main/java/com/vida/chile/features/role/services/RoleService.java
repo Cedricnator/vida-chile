@@ -1,18 +1,16 @@
-package com.vida.chile.role.services;
+package com.vida.chile.features.role.services;
 
-import com.vida.chile.role.entity.Role;
-import com.vida.chile.role.repository.RoleRepository;
+import com.vida.chile.features.role.entity.Role;
+import com.vida.chile.features.role.repository.RoleRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class RoleService {
     private final RoleRepository roleRepository;
-
-    public RoleService(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
-    }
 
     public void createRole(Role role) {
         this.roleRepository.save(role);

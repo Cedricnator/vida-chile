@@ -1,20 +1,18 @@
-package com.vida.chile.faq.controller;
+package com.vida.chile.features.faq.controller;
 
-import com.vida.chile.faq.entity.Faq;
-import com.vida.chile.faq.service.FaqService;
+import com.vida.chile.features.faq.entity.Faq;
+import com.vida.chile.features.faq.service.FaqService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/faq")
+@AllArgsConstructor
 public class FaqController {
     private final FaqService faqService;
-
-    public FaqController(FaqService faqService) {
-        this.faqService = faqService;
-    }
-
+    
     @GetMapping("/health")
     public String healthCheck(){
         return "Faq Service is up and running";

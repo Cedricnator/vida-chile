@@ -1,4 +1,4 @@
-package com.vida.chile.role.dto;
+package com.vida.chile.features.role.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

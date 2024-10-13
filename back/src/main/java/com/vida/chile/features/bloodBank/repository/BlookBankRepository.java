@@ -1,4 +1,7 @@
-package com.vida.chile.bloodBank.repository;
+package com.vida.chile.features.bloodBank.repository;
 
-public interface BlookBankRepository {
+import com.vida.chile.features.bloodBank.entity.BloodBank;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BlookBankRepository extends JpaRepository<BloodBank, Long> {
 }

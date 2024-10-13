@@ -1,19 +1,17 @@
-package com.vida.chile.user.controller;
+package com.vida.chile.features.user.controller;
 
-import com.vida.chile.user.entity.User;
-import com.vida.chile.user.services.UserService;
+import com.vida.chile.features.user.entity.User;
+import com.vida.chile.features.user.services.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/v1/user")
+@AllArgsConstructor
 public class UserController {
     private final UserService userService;
-
-    UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/")
     public List<User> getUsers(){

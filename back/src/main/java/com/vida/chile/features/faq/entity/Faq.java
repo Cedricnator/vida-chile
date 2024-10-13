@@ -1,4 +1,4 @@
-package com.vida.chile.faq.entity;
+package com.vida.chile.features.faq.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

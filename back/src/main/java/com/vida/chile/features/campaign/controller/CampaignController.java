@@ -1,42 +1,42 @@
-package com.vida.chile.features.campain.controller;
+package com.vida.chile.features.campaign.controller;
 
-import com.vida.chile.features.campain.entity.Campain;
-import com.vida.chile.features.campain.service.CampainService;
+import com.vida.chile.features.campaign.entity.Campaign;
+import com.vida.chile.features.campaign.service.CampaignService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/campain")
-public class CampainController {
-    private final CampainService campainService;
-
-    public CampainController(CampainService campainService){
-        this.campainService = campainService;
-    }
+@RequestMapping("/v1/campaign")
+@AllArgsConstructor
+@Slf4j
+public class CampaignController {
+    private final CampaignService campaignService;
 
     @GetMapping("/")
-    public List<Campain> getCampains(){
-        return this.campainService.getAllCampains();
+    public List<Campaign> getCampaigns(){
+        return this.campaignService.getAllCampaign();
     }
 
     @GetMapping("/{id}")
-    public Campain getCampain(@PathVariable Long id){
-        return this.campainService.getCampain(id);
+    public Campaign getCampaign(@PathVariable Long id){
+        return this.campaignService.getCampaign(id);
     }
 
     @PostMapping("/")
-    public void createCampain(@RequestBody Campain campain){
-        this.campainService.createCampain(campain);
+    public void createCampaign(@RequestBody Campaign campaign){
+        this.campaignService.createCampaign(campaign);
     }
 
     @PutMapping("/")
-    public void updateCampain(@RequestBody Campain campain){
-        this.campainService.updateCampain(campain);
+    public void updateCampaign(@RequestBody Campaign campaign){
+        this.campaignService.updateCampaign(campaign);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCampain(@PathVariable Long id){
-        this.campainService.deleteCampain(id);
+    public void deleteCampaign(@PathVariable Long id){
+        this.campaignService.deleteCampaign(id);
     }
 }

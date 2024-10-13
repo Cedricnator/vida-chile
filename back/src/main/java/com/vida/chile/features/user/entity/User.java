@@ -1,12 +1,13 @@
-package com.vida.chile.user.entity;
+package com.vida.chile.features.user.entity;
 
-import com.vida.chile.account.Account;
-import com.vida.chile.role.entity.Role;
+import com.vida.chile.features.role.entity.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Optional;
 
 @Entity
 @Getter

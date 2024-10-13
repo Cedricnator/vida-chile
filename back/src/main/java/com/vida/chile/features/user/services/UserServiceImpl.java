@@ -1,18 +1,16 @@
-package com.vida.chile.user.services;
+package com.vida.chile.features.user.services;
 
-import com.vida.chile.user.entity.User;
-import com.vida.chile.user.repository.UserRepository;
+import com.vida.chile.features.user.entity.User;
+import com.vida.chile.features.user.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-
-    UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public void createUser(User user) {

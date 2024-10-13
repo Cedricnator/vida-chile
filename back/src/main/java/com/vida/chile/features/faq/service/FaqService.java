@@ -1,6 +1,6 @@
-package com.vida.chile.faq.service;
+package com.vida.chile.features.faq.service;
 
-import com.vida.chile.faq.entity.Faq;
+import com.vida.chile.features.faq.entity.Faq;
 
 import java.util.List;
 

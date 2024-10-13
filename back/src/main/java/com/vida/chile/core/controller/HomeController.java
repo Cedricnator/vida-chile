@@ -1,4 +1,4 @@
-package com.vida.chile.controller;
+package com.vida.chile.core.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String Home(){
-        return "Hello, Chile";
+        return "Healthy";
     }
 
     @GetMapping("/secured")

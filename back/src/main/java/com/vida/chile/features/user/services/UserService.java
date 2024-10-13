@@ -1,6 +1,6 @@
-package com.vida.chile.user.services;
+package com.vida.chile.features.user.services;
 
-import com.vida.chile.user.entity.User;
+import com.vida.chile.features.user.entity.User;
 
 import java.util.List;
 

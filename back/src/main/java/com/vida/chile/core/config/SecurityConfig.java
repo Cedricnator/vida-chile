@@ -1,4 +1,4 @@
-package com.vida.chile.config;
+package com.vida.chile.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

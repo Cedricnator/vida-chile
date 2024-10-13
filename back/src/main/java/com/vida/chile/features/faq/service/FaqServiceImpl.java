@@ -1,18 +1,16 @@
-package com.vida.chile.faq.service;
+package com.vida.chile.features.faq.service;
 
-import com.vida.chile.faq.entity.Faq;
-import com.vida.chile.faq.repository.FaqRepository;
+import com.vida.chile.features.faq.entity.Faq;
+import com.vida.chile.features.faq.repository.FaqRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class FaqServiceImpl implements FaqService{
     private final FaqRepository faqRepository;
-
-    public FaqServiceImpl(FaqRepository faqRepository) {
-        this.faqRepository = faqRepository;
-    }
 
     @Override
     public void createFaq(Faq faq) {

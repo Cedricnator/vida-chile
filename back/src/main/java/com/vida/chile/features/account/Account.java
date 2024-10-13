@@ -1,4 +1,4 @@
-package com.vida.chile.account;
+package com.vida.chile.features.account;
 
 import lombok.Data;
 import lombok.Getter;

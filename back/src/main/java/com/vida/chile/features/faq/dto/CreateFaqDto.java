@@ -1,4 +1,4 @@
-package com.vida.chile.faq.dto;
+package com.vida.chile.features.faq.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
