@@ -1,14 +1,22 @@
 package com.vida.chile.features.faq.controller;
 
-import com.vida.chile.features.faq.entity.Faq;
-import com.vida.chile.features.faq.service.FaqService;
-import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vida.chile.features.faq.entity.Faq;
+import com.vida.chile.features.faq.service.FaqService;
+
+import lombok.AllArgsConstructor;
+
 @RestController
-@RequestMapping("/faq")
+@RequestMapping("/v1/faq")
 @AllArgsConstructor
 public class FaqController {
     private final FaqService faqService;

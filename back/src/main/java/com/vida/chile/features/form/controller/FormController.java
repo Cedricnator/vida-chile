@@ -1,14 +1,21 @@
 package com.vida.chile.features.form.controller;
 
-import com.vida.chile.features.form.entity.Form;
-import com.vida.chile.features.form.service.FormService;
-import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vida.chile.features.form.entity.Form;
+import com.vida.chile.features.form.service.FormService;
+
+import lombok.AllArgsConstructor;
+
 @RestController
-@RequestMapping("/form")
+@RequestMapping("/v1/form")
 @AllArgsConstructor
 public class FormController {
     private final FormService formService;
