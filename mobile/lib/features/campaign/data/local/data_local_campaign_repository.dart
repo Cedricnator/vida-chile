@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:mobile/features/campaign/entity/campaign.entity.dart';
+import 'package:mobile/features/campaign/entity/campaign_entity.dart';
 import 'package:mobile/features/campaign/repository/campaign.repository.dart';
 
 class DataLocalCampaignRepository implements CampaignRepository{

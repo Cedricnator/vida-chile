@@ -1,5 +1,5 @@
 
-import 'state-campaing.enum.dart';
+import 'state_campaing_enum.dart';
 
 class Campaign {
   const Campaign(

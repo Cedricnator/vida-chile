@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile/common/widgets/nav_bar.dart';
 import 'package:mobile/features/campaign/data/local/data_local_campaign_repository.dart';
-import 'package:mobile/features/campaign/entity/campaign.entity.dart';
+import 'package:mobile/features/campaign/entity/campaign_entity.dart';
 
 class CampaignPage extends StatelessWidget {
   const CampaignPage({super.key});

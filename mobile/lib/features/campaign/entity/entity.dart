@@ -1,2 +1,2 @@
-export 'campaign.entity.dart';
-export 'state-campaing.enum.dart';
+export 'campaign_entity.dart';
+export 'state_campaing_enum.dart';
