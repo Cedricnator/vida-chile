@@ -19,16 +19,22 @@ class NavBar extends StatelessWidget {
                 Navigator.pushNamed(context, '/operativos');
               }),
           ListTile(
-            title: Text("Preguntas Frecuentes"),
+            title: const Text("Preguntas Frecuentes"),
             onTap: () {
               Navigator.pushNamed(context, '/preguntas-frecuentes');
             },
           ),
           //TODO: limit the access to be only from an campaign. delete this bypass
           ListTile(
-            title: Text("Formulario"),
+            title: const Text("Formulario"),
             onTap: () {
               Navigator.pushNamed(context, '/formulario');
+            },
+          ),
+           ListTile(
+            title: const Text("Cerrar Sesión"),
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
             },
           )
         ],

@@ -27,9 +27,9 @@ class FaqPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      drawer: NavBar(),
+      drawer: const NavBar(),
       appBar: AppBar(
-        title: Text("Preguntas Frecuentes"),
+        title: const Text("Preguntas Frecuentes"),
       ),
       body: ListView.builder(
         itemCount: faqs.length,
@@ -43,7 +43,7 @@ class FaqPage extends StatelessWidget {
             ansDecoration:
                 BoxDecoration(color: Theme.of(context).dialogBackgroundColor),
             ansStyle: Theme.of(context).textTheme.bodyMedium,
-            separator: Divider(
+            separator: const Divider(
               height: 50,
               thickness: 0,
             ),
