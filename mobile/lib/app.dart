@@ -15,9 +15,10 @@ class VidaChileApp extends StatelessWidget {
     return MaterialApp(
         title: 'Vida Chile',
         initialRoute: '/login',
+        debugShowCheckedModeBanner: false,
         routes: { 
           '/login': (BuildContext context) => const LoginPage(),
-          '/': (BuildContext context) => HomeScreen(),
+          '/': (BuildContext context) => const HomeScreen(),
           '/operativos': (BuildContext context) => const CampaignPage(),
           '/preguntas-frecuentes': (BuildContext context) => const FaqPage(),
           '/formulario': (BuildContext context) =>  const FormScreen(),
