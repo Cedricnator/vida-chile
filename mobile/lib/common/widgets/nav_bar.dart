@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
@@ -21,7 +19,7 @@ class NavBar extends StatelessWidget {
                 Navigator.pushNamed(context, '/operativos');
               }),
           ListTile(
-            title: const Text("Preguntas Frecuentes"),
+            title: Text("Preguntas Frecuentes"),
             onTap: () {
               Navigator.pushNamed(context, '/preguntas-frecuentes');
             },

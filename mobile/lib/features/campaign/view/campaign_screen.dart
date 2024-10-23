@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile/common/widgets/nav_bar.dart';
-import 'package:mobile/features/campaign/data/local/data_local_campaign_repository.dart';
-import 'package:mobile/features/campaign/entity/campaign_entity.dart';
+import 'package:vida_chile_app/common/widgets/nav_bar.dart';
+import 'package:vida_chile_app/features/campaign/models/campaign.dart';
+import 'package:vida_chile_app/features/campaign/repository/campaign_repository.dart';
 
 class CampaignPage extends StatelessWidget {
-  const CampaignPage({super.key});
+  const CampaignPage({Key? key}) : super(key: key);
 
   List<Card> _buildGridCards(int count) {
     List<Card> cards = List.generate(count, (int index) {
@@ -37,8 +36,7 @@ class CampaignPage extends StatelessWidget {
   }
 
   List<Card> _buildBloodCampaignCard() {
-    List<Campaign> campaigns =
-        DataLocalCampaignRepository().getCampaigns() as List<Campaign>;
+    List<Campaign> campaigns = CampaignRepository.loadCampaigns();
     return campaigns.map((campaign) {
       return Card(
         clipBehavior: Clip.antiAlias,
@@ -68,16 +66,15 @@ class CampaignPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const NavBar(),
-      appBar: AppBar(
-        title: const Text('Vida Chile'),
-      ),
-      body: GridView.count(
-        crossAxisCount: 1,
-        padding: const EdgeInsets.all(16.0),
-        childAspectRatio: 8.0 / 9.0,
-        children: _buildBloodCampaignCard(),
-      )
-    );
+        drawer: const NavBar(),
+        appBar: AppBar(
+          title: const Text('Vida Chile'),
+        ),
+        body: GridView.count(
+          crossAxisCount: 1,
+          padding: const EdgeInsets.all(16.0),
+          childAspectRatio: 8.0 / 9.0,
+          children: _buildBloodCampaignCard(),
+        ));
   }
 }

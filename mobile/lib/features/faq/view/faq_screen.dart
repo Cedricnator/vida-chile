@@ -1,37 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/common/widgets/nav_bar.dart';
-
-class FAQ extends StatelessWidget {
-  final String question;
-  final String answer;
-  final TextStyle? queStyle;
-  final BoxDecoration? queDecoration;
-  final BoxDecoration? ansDecoration;
-  final TextStyle? ansStyle;
-  final Widget? separator;
-
-  const FAQ({
-    super.key, 
-    required this.question,
-    required this.answer,
-    this.queStyle,
-    this.queDecoration,
-    this.ansDecoration,
-    this.ansStyle,
-    this.separator,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(question),
-        subtitle: Text(answer),
-      ),
-    );
-  }
-}
-
+import 'package:vida_chile_app/common/widgets/nav_bar.dart';
+import 'package:flutter_faq/flutter_faq.dart';
 
 class FaqPage extends StatelessWidget {
   const FaqPage({super.key});
@@ -58,9 +27,9 @@ class FaqPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      drawer: const NavBar(),
+      drawer: NavBar(),
       appBar: AppBar(
-        title: const Text("Preguntas Frecuentes"),
+        title: Text("Preguntas Frecuentes"),
       ),
       body: ListView.builder(
         itemCount: faqs.length,
@@ -74,7 +43,7 @@ class FaqPage extends StatelessWidget {
             ansDecoration:
                 BoxDecoration(color: Theme.of(context).dialogBackgroundColor),
             ansStyle: Theme.of(context).textTheme.bodyMedium,
-            separator: const Divider(
+            separator: Divider(
               height: 50,
               thickness: 0,
             ),

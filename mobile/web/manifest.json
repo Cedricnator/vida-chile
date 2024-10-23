@@ -1,6 +1,6 @@
 {
-    "name": "mobile",
-    "short_name": "mobile",
+    "name": "vida_chile_app",
+    "short_name": "vida_chile_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

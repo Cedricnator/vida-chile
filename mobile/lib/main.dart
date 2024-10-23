@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/app.dart';
+import 'app.dart';
 
 void main() {
   runApp(const VidaChileApp());
