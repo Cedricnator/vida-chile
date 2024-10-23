@@ -75,8 +75,9 @@ Widget _buildStatusLabel(StateCampaign state) {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Horario: ${campaign.startHour} - ${campaign.finalHour}"),
-                    Text(campaign.city),
-                    Text(campaign.adress),
+                    Text("Ciudad: ${campaign.city}"),
+                    Text("Lugar: ${campaign.adress}"),
+                    Text("Fecha: ${campaign.date}")
                   ],
                 ),
               ),
@@ -117,7 +118,7 @@ Widget _buildStatusLabel(StateCampaign state) {
             child: GridView.count(
               crossAxisCount: 1,
               padding: const EdgeInsets.all(16.0),
-              childAspectRatio: 22.0 / 9.0,
+              childAspectRatio: 20.0 / 9.0,
               children: _buildBloodCampaignCard(),
             ),
           ),
