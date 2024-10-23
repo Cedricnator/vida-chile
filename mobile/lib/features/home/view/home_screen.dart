@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:vida_chile_app/common/widgets/nav_bar.dart';
+import 'package:vida_chile_app/features/notifications/LocalNotificationsService.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  Future<void> test() async {
+    await LocalNotificationsService.showNotification(1, 'testo', 'testo', 'testo');
+  }
 
   @override
   Widget build(BuildContext context) {

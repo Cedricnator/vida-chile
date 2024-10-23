@@ -9,6 +9,7 @@ import 'features/user/view/login.dart';
 
 class VidaChileApp extends StatelessWidget {
   const VidaChileApp({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
