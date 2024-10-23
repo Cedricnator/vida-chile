@@ -4,36 +4,8 @@ import 'package:vida_chile_app/features/campaign/models/campaign.dart';
 import 'package:vida_chile_app/features/campaign/repository/campaign_repository.dart';
 
 class CampaignPage extends StatelessWidget {
-  const CampaignPage({Key? key}) : super(key: key);
+  const CampaignPage({super.key});
 
-  List<Card> _buildGridCards(int count) {
-    List<Card> cards = List.generate(count, (int index) {
-      return Card(
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: 18.0 / 11.0,
-              child: Image.asset('assets/diamond.png'),
-            ),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text('Title'),
-                  SizedBox(height: 8.0),
-                  Text('Secondary Text'),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
-    });
-    return cards;
-  }
 
   List<Card> _buildBloodCampaignCard() {
     List<Campaign> campaigns = CampaignRepository.loadCampaigns();
@@ -64,17 +36,41 @@ class CampaignPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+ Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const NavBar(),
-        appBar: AppBar(
-          title: const Text('Vida Chile'),
-        ),
-        body: GridView.count(
-          crossAxisCount: 1,
-          padding: const EdgeInsets.all(16.0),
-          childAspectRatio: 8.0 / 9.0,
-          children: _buildBloodCampaignCard(),
-        ));
+      drawer: const NavBar(),
+      appBar: AppBar(
+        title: const Text('Vida Chile'),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(vertical: 15.0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                  borderSide: const BorderSide(width: 0.8),
+                ),
+                hintText: 'Buscar',
+                prefixIcon: const Icon(
+                  Icons.search,
+                  size: 30.0,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 1,
+              padding: const EdgeInsets.all(16.0),
+              childAspectRatio: 8.0 / 9.0,
+              children: _buildBloodCampaignCard(),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
