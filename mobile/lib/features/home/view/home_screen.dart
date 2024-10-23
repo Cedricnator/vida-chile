@@ -2,14 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:vida_chile_app/common/widgets/nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavBar(),
+      drawer: const NavBar(),
       appBar: AppBar(
-        title: Text("Vida Chile"),
+        title: const Text("Inicio"),
       ),
-      body: Text("Home"),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  [
+            const Text(
+              'Vida Chile',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            Image.asset('assets/home-1.png'),
+            const SizedBox(height: 16),
+            const Text(
+              '¡Unete a nosotros!',
+              style: TextStyle(fontSize: 27),
+            ),
+            const Text(
+              'En Vida Chile prometemos brindar la mejor atencion posible en tu donacion, para nosotros es vital que dones sangre de manera tranquila y segura',
+              textAlign: TextAlign.center,
+            )
+          ]
+        ) 
+      ),
     );
   }
 }
