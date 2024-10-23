@@ -93,7 +93,7 @@ Widget _buildStatusLabel(StateCampaign state) {
     return Scaffold(
       drawer: const NavBar(),
       appBar: AppBar(
-        title: const Text('Vida Chile'),
+        title: const Text('Operativos'),
       ),
       body: Column(
         children: [
