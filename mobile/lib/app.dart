@@ -15,12 +15,12 @@ class VidaChileApp extends StatelessWidget {
     return MaterialApp(
         title: 'Vida Chile',
         initialRoute: '/login',
-        routes: {
+        routes: { 
           '/login': (BuildContext context) => const LoginPage(),
           '/': (BuildContext context) => HomeScreen(),
           '/operativos': (BuildContext context) => const CampaignPage(),
-          '/preguntas-frecuentes': (BuildContext context) => FaqPage(),
-          '/formulario': (BuildContext context) => FormScreen(),
+          '/preguntas-frecuentes': (BuildContext context) => const FaqPage(),
+          '/formulario': (BuildContext context) =>  const FormScreen(),
         },
         theme: ThemeData(
           colorSchemeSeed: const Color.fromARGB(255, 240, 38, 24),
