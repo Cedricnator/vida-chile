@@ -1,15 +1,32 @@
 import { Injectable } from '@angular/core';
 import { AuthRepository } from '../domain/auth.repository';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { LoginApiResponse, LogoutApiResponse } from '../domain/account.model';
 
 @Injectable()
 export class AuthMockService implements AuthRepository {
    
-   login(): Observable<any> {
-      throw new Error('Method not implemented.');
+   public login(userName: string, password: string): Observable<LoginApiResponse> {
+      const mockLogin ={
+         "success": true,
+         "data": {
+            "id": 1,
+            "username": "cedricnator"
+         },
+         "message": "Login successful."
+      }
+      return of(mockLogin)
    }
 
-   logout(): Observable<any> {
-      throw new Error('Method not implemented.');
+   public logout(): Observable<LogoutApiResponse> {
+      const mockResponse = {
+         "success": true,
+         "data": {
+            "response": "Successfully logged out"
+         },
+         "message": "Logout successful."
+      }
+      
+      return of(mockResponse)
    }
 }

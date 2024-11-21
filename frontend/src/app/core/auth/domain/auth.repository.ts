@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs'
+import { LoginApiResponse, LogoutApiResponse } from './account.model';
 
 export interface AuthRepository {
-   login(): Observable<any>
-   logout(): Observable<any>
+   login(userName: string, password: string): Observable<LoginApiResponse>
+   logout(): Observable<LogoutApiResponse>
 }
