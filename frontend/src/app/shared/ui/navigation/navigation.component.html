@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>VidaChile</mat-toolbar>
     <mat-nav-list>
       @for (item of menuItems(); track $index) {
         <a mat-list-item [routerLink]="item.path" routerLinkActive="router-link-active">{{item.label}}</a>

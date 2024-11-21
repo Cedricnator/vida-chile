@@ -8,7 +8,7 @@ import { BloodBankRepository } from '../domain/bloodbank.repository';
 export class BloodBankService {
    constructor(@Inject(BLOODBANK_REPOSITORY) private _bloodBankRepository: BloodBankRepository) { }
 
-   private getBloodBank(id: number){
+   public getBloodBank(id: number){
       return this._bloodBankRepository.getBloodBank(id);
    }
 }

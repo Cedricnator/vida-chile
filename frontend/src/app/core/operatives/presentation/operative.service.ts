@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
    providedIn: 'root'
 })
-export class ServiceNameService {
+export class OperativeService {
    constructor(@Inject(OPERATIVE_REPOSITORY) private _operativeRepository: OperativeRepository) { }
    
    public getOperatives(): Observable<any>{

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, signal, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { Observable } from 'rxjs';
@@ -9,7 +9,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MenuItems } from '../../interfaces/menu-items.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'navigation',
@@ -24,38 +25,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     MatIconModule,
     AsyncPipe,
     RouterLink,
-    RouterLinkActive,
-    NgIf
-  ]
+    NgIf,
+]
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
-  public menuItems = signal([
-    {
-      label: 'Inicio',
-      icon:  'home',
-      path:  ''
-    },
-    {
-      label: 'Operativos',
-      icon:  'location_away',
-      path:  'operatives'
-    },
-    {
-      label: 'Formularios',
-      icon:  'description',
-      path:  'forms'
-    },
-    {
-      label: 'Cerrar Sesión',
-      icon:  'logout',
-      path:  '/auth/login'
-    }
-  ])
-
+  public menuItems = input.required<MenuItems[]>()
+ 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
-    );
+  );
 }

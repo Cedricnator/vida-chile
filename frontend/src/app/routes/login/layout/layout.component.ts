@@ -7,9 +7,11 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     RouterOutlet
   ],
-  templateUrl: './layout.component.html',
+  template: `
+    <router-outlet />
+  `,
   styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
-
+  
 }

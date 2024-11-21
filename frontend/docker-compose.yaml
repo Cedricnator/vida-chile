@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  frontend.vidachile.local:
+    container_name: frontent.vidachile.local
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    ports:
+      - 21200:4000
