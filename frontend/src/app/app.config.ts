@@ -8,12 +8,15 @@ import { USER_REPOSITORY } from './core/user/infrastructure/user.provider';
 import { ApplicationConfig, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideExperimentalZonelessChangeDetection(),
     provideRouter(routes), 
     provideAnimationsAsync(),
+    provideAnimations(),
     
     // Injection Tokens
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'outline'} },
@@ -21,6 +24,6 @@ export const appConfig: ApplicationConfig = {
     BLOODBANK_REPOSITORY,
     FORM_REPOSITORY,
     OPERATIVE_REPOSITORY,
-    USER_REPOSITORY
+    USER_REPOSITORY,
   ]
 };

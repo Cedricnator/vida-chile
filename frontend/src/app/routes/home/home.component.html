@@ -1,41 +1,98 @@
-<div class="flex flex-row gap-4 p-4">
-   <mat-card  appearance="outlined">
-      <div class="w-1/2">
+<div class="flex flex-row gap-4 mb-4 w-full">
+   <mat-card class="flex-1" appearance="outlined">
+      <div class="flex justify-center items-center">
          <mat-icon 
          aria-hidden="false" 
          aria-label="Example home icon" 
          fontIcon="check_circle"
+         class="text-6xl"
       />
       </div>
       <div class="flex flex-col justify-center">
-         <mat-card-title class="mb-4">Operativos activos</mat-card-title>
+         <mat-card-title class="mb-4 font-semibold">Operativos activos</mat-card-title>
          <mat-card-content>
-            5
+            <span class="text-2xl">5</span>
          </mat-card-content>
       </div>
    </mat-card>
 
-   <mat-card class="w-1/3 flex flex-row p-4 gap-4" appearance="outlined">
-      <div>
-         <img class="w-48 h-48 object-cover rounded" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+   <mat-card class="flex-1 flex flex-row p-4 gap-4" appearance="outlined">
+      <div class="flex justify-center items-center">
+         <mat-icon 
+         aria-hidden="false" 
+         aria-label="Example home icon" 
+         fontIcon="event"
+         class="text-6xl"
+         />
       </div>
       <div class="flex flex-col justify-center">
          <mat-card-title class="mb-4">Numero de Operativos</mat-card-title>
          <mat-card-content>
-            5
-         </mat-card-content>
-      </div>
-   </mat-card>
-
-   <mat-card class="w-1/3 flex flex-row p-4 gap-4" appearance="outlined">
-      <div>
-         <img class="w-48 h-48 object-cover rounded" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-      </div>
-      <div class="flex flex-col justify-center">
-         <mat-card-title class="mb-4">Numero de Formularios</mat-card-title>
-         <mat-card-content>
-            5
+            <span class="text-2xl">
+               {{ operative$()?.length }}
+            </span>
          </mat-card-content>
       </div>
    </mat-card>
 </div>
+
+<div class="mat-elevation-z8 border border-gray-400 rounded-2xl p-4">
+   <h3>Operativos</h3>
+   <table mat-table [dataSource]="operative$()!">
+ 
+     <!-- Position Column -->
+     <ng-container matColumnDef="position">
+       <th mat-header-cell *matHeaderCellDef> No. </th>
+       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+     </ng-container>
+ 
+     <!-- Name Column -->
+     <ng-container matColumnDef="name">
+       <th mat-header-cell *matHeaderCellDef> Nombre </th>
+       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+     </ng-container>
+ 
+     <!-- Weight Column -->
+     <ng-container matColumnDef="address">
+       <th mat-header-cell *matHeaderCellDef> Direccion </th>
+       <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+     </ng-container>
+ 
+     <!-- Symbol Column -->
+     <ng-container matColumnDef="startDate">
+       <th mat-header-cell *matHeaderCellDef> Fecha inicio </th>
+       <td mat-cell *matCellDef="let element"> {{element.startDate | date}} </td>
+     </ng-container>
+
+     <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> Fecha termino </th>
+      <td mat-cell *matCellDef="let element"> {{element.endDate | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element"> 
+        <div class="flex gap-2">
+          <button mat-icon-button color="primary" (click)="addOperative()">
+            <mat-icon style="font-size: larger;">add_circle</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" (click)="updateOperative(element)">
+            <mat-icon style="font-size: larger;">edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteOperative(element.id)">
+            <mat-icon style="font-size: larger;">delete</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+ 
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+   </table>
+ 
+   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                  showFirstLastButtons
+                  aria-label="Select page of periodic elements">
+   </mat-paginator>
+ </div>
+ 
