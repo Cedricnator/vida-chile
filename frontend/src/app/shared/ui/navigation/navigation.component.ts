@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { IMenuItems } from '../../interfaces/menu-items.interface';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'navigation',
@@ -25,6 +25,7 @@ import { RouterLink } from '@angular/router';
     MatIconModule,
     AsyncPipe,
     RouterLink,
+    RouterLinkActive,
     NgIf,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -32,7 +33,8 @@ import { RouterLink } from '@angular/router';
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
   public menuItems = input.required<IMenuItems[]>()
- 
+  public bloodBankName = input<string>();
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

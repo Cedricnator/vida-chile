@@ -3,15 +3,25 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>VidaChile</mat-toolbar>
+    <mat-toolbar>
+      <div class="flex items-center justify-evenly">
+        <img src="sangrita.png" alt="" class="w-12 h-16" />
+        <span class="text-[#FF0000] font-bold">VidaChile</span>
+      </div>
+    </mat-toolbar>
     <mat-nav-list>
       @for (item of menuItems(); track $index) {
-        <a mat-list-item [routerLink]="item.path" routerLinkActive="router-link-active">{{item.label}}</a>
+        <a mat-list-item 
+        [routerLink]="item.path" 
+        routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{exact: true}">
+          {{item.label}}
+        </a>
       }
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="flex justify-between items-center">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -20,12 +30,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <!-- <span>vidachile-front</span> -->
+      <span class="text-[#E62525] ml-auto pr-6">{{ bloodBankName() }}</span> 
     </mat-toolbar>
     <div class="main-content">
-      <ng-content>
-  
-      </ng-content>
+      <ng-content></ng-content>
     </div>
-  </mat-sidenav-content>
+</mat-sidenav-content>
 </mat-sidenav-container>

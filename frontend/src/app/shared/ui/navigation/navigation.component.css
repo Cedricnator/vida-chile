@@ -21,3 +21,8 @@
 .main-content {
   margin: 20px 20px auto;
 }
+
+.router-link-active{
+  background-color: #E62525;
+  color: white;
+}

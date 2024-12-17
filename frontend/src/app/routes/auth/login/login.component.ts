@@ -21,7 +21,6 @@ export class LoginComponent {
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
-
   public login(data: any){
     this.authService.login(data.userName, data.password)
     .pipe(takeUntilDestroyed(this.destroyRef))

@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import {  OPERATIVE_TOKEN } from '../infrastructure/operative.provider';
 import { OperativeRepository } from '../domain/operative.repository';
 import { Observable } from 'rxjs';
-import { CreateOperativeParams } from '../domain/operative.model';
+import { CreateOperativeParams, OperativeModel } from '../domain/operative.model';
 
 @Injectable({
    providedIn: 'root'
@@ -10,7 +10,7 @@ import { CreateOperativeParams } from '../domain/operative.model';
 export class OperativeService {
    constructor(@Inject(OPERATIVE_TOKEN) private _operativeRepository: OperativeRepository) { }
    
-   public getOperatives(): Observable<any>{
+   public getOperatives(): Observable<OperativeModel[]>{
       return this._operativeRepository.getOperatives();
    }
 

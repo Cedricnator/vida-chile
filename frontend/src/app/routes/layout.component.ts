@@ -1,7 +1,9 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from '../shared/ui/navigation/navigation.component';
 import { MenuItem } from './menu-item.model';
+import { BloodBankService } from '../core/bloodbank/presentation/bloodbank.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'layout',
@@ -11,13 +13,17 @@ import { MenuItem } from './menu-item.model';
     NavigationComponent
   ],
   template: `
-    <navigation [menuItems]="menuItems()">
+    <navigation [menuItems]="menuItems()" [bloodBankName]="bloodBank()?.name">
       <router-outlet />
     </navigation>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {
+  private readonly bloodBankService = inject(BloodBankService);
+
+  public bloodBank = toSignal(this.bloodBankService.getBloodBank(1));
+
   public menuItems = signal<MenuItem[]>([
     new MenuItem(
       'Inicio',
