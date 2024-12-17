@@ -3,11 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
    {
       path: 'auth',
-      loadComponent: () => import('./routes/login/layout/layout.component').then(C => C.LayoutComponent),
+      loadComponent: () => import('./routes/auth/layout.component').then(C => C.LayoutComponent),
       children: [
          {
             path: 'login',
-            loadComponent: () => import('./routes/login/login.component').then(C => C.LoginComponent)
+            loadComponent: () => import('./routes/auth/login/login.component').then(C => C.LoginComponent)
          },
          {
             path: '**',
@@ -17,11 +17,11 @@ export const routes: Routes = [
       ]
    },
    {
-      path: '',
-      loadComponent: () => import('./shared/ui/layout/layout.component').then(C => C.LayoutComponent),
+      path: 'home',
+      loadComponent: () => import('./routes/layout.component').then(C => C.LayoutComponent),
       children: [
          {
-            path: 'home',
+            path: '',
             loadComponent: () => import('./routes/home/home.component').then(C => C.HomeComponent)
          },
          {
@@ -34,14 +34,14 @@ export const routes: Routes = [
          },
          {
             path: '**',
-            redirectTo: 'home',
+            redirectTo: '',
             pathMatch: 'full'
          }
       ]
    },
    {
       path: '**',
-      redirectTo: '',
+      redirectTo: 'home',
       pathMatch: 'full'
    }
 ];

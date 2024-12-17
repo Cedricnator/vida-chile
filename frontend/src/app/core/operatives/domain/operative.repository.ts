@@ -1,8 +1,10 @@
 import { Observable } from "rxjs";
+import { CreateOperativeParams, OperativeModel } from "./operative.model";
 
-export interface OperativeRepository {
-   createOperative(): Observable<any>
-   getOperatives():   Observable<any>
-   deleteOperative(id: number): Observable<any>
-   updateOperative(): Observable<any>
+export abstract class OperativeRepository {
+   abstract createOperative(params: CreateOperativeParams): Observable<any>
+   abstract getOperative(id: number): Observable<OperativeModel>
+   abstract getOperatives():   Observable<OperativeModel[]>
+   abstract deleteOperative(id: number): Observable<any>
+   abstract updateOperative(): Observable<any>
 }

@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { OperativeService } from '../../core/operatives/presentation/operative.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-operatives',
   standalone: true,
-  imports: [],
+  imports: [
+    AsyncPipe,
+  ],
   templateUrl: './operatives.component.html',
-  styleUrl: './operatives.component.scss'
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OperativesComponent {
-
+  private readonly operativeService = inject(OperativeService);
+  public operative$ = this.operativeService.getOperatives();
+  
 }

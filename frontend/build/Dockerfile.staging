@@ -2,7 +2,7 @@
 FROM node:18-alpine AS build
 
 # Set the build argument and environment variable for configuration
-ARG configuration=production
+ARG configuration=staging
 ENV configuration=$configuration
 
 # Set the working directory inside the container
@@ -10,6 +10,7 @@ WORKDIR /app
 
 # Copy package files and install pnpm
 COPY package.json package-lock.json ./
+
 
 # Install dependencies using pnpm
 RUN npm install --frozen-lockfile

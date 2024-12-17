@@ -1,4 +1,4 @@
-import { Component, inject, input, signal, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { Observable } from 'rxjs';
@@ -9,13 +9,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { MenuItems } from '../../interfaces/menu-items.interface';
+import { IMenuItems } from '../../interfaces/menu-items.interface';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
+  styleUrls: ['./navigation.component.css'],
   standalone: true,
   imports: [
     MatToolbar,
@@ -26,11 +26,12 @@ import { RouterLink } from '@angular/router';
     AsyncPipe,
     RouterLink,
     NgIf,
-]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
-  public menuItems = input.required<MenuItems[]>()
+  public menuItems = input.required<IMenuItems[]>()
  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

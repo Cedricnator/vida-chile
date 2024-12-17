@@ -1,1 +1,8 @@
-<p>operatives works!</p>
+
+<div>
+   @for (operative of operative$ | async; track $index) {
+      <span>{{ operative.name }}</span>
+   }@empty {
+      <span>No operatives found</span>
+   }
+</div>

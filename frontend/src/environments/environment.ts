@@ -1,7 +1,7 @@
-import { Environment } from "./environment.type";
+import { Environment } from "./environment.interface";
 
 export const environment: Environment = {
-   env:        "production",
-   domain_url: "https://",
-   api_url:    "200."
-};
+   env:        "development",
+   domain_url: "http://localhost:",
+   api_url:    "8080"
+}

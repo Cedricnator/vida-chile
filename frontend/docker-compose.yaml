@@ -1,10 +1,15 @@
 version: "3.9"
-
 services:
-  frontend.vidachile.local:
-    container_name: frontent.vidachile.local
+  frontend.vida-chile.local:
+    container_name: frontend.vida-chile.local
     build:
       context: .
-      dockerfile: build/Dockerfile
+      dockerfile: build/Dockerfile.staging
     ports:
-      - 21200:4000
+      - 44400:8080
+    networks:
+      - vida_chile_network
+
+networks:
+  vida_chile_network:
+    external: true

@@ -1,20 +1,21 @@
 import { Inject, Injectable } from '@angular/core';
-import { OPERATIVE_REPOSITORY } from '../infrastructure/operative.provider';
+import {  OPERATIVE_TOKEN } from '../infrastructure/operative.provider';
 import { OperativeRepository } from '../domain/operative.repository';
 import { Observable } from 'rxjs';
+import { CreateOperativeParams } from '../domain/operative.model';
 
 @Injectable({
    providedIn: 'root'
 })
 export class OperativeService {
-   constructor(@Inject(OPERATIVE_REPOSITORY) private _operativeRepository: OperativeRepository) { }
+   constructor(@Inject(OPERATIVE_TOKEN) private _operativeRepository: OperativeRepository) { }
    
    public getOperatives(): Observable<any>{
       return this._operativeRepository.getOperatives();
    }
 
-   public createOperative(): Observable<any>{
-      return this._operativeRepository.createOperative();
+   public createOperative(params: CreateOperativeParams): Observable<any>{
+      return this._operativeRepository.createOperative(params);
    }
 
    public deleteOperative(id: number): Observable<any>{
