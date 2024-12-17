@@ -1,21 +1,16 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
 import { AuthService } from '../../../core/auth/presentation/auth.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MatCardModule } from '@angular/material/card';
+import { FormComponent } from './form/form.component';
 import { Router } from '@angular/router';
-import { MatCardModule } from '@angular/material/card'
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
     MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatButtonModule,
+    FormComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -24,19 +19,15 @@ import { MatInputModule } from '@angular/material/input';
 export class LoginComponent {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
-  private readonly fb = inject(FormBuilder);
+  private readonly destroyRef = inject(DestroyRef);
 
-  public loginForm: FormGroup = this.fb.group({
-    userName: ['', [Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(5)]]
-  })
 
-  public login(){
-    if(!this.loginForm.valid) return;
-    this.authService.login(this.loginForm.value.userName, this.loginForm.value.password)
+  public login(data: any){
+    this.authService.login(data.userName, data.password)
+    .pipe(takeUntilDestroyed(this.destroyRef))
     .subscribe({
       next: () => {
-
+        console.log('Logged in')
       },
       error: (err) => {
         console.log(err)

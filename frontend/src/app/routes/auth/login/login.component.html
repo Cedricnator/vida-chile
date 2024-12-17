@@ -1,23 +1,6 @@
-<mat-card ngSkipHydration>
+<mat-card >
    <mat-card-title>Iniciar Sesión</mat-card-title>
    <mat-card-content>
-      <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
-         <p>
-            <mat-form-field>
-               <input type="text" matInput placeholder="Username" formControlName="userName" autocomplete="username"/>
-            </mat-form-field>
-
-         </p>
-
-         <p>
-            <mat-form-field>
-              <input type="password" matInput placeholder="Password" formControlName="password" autocomplete="current-password"/>
-            </mat-form-field>
-         </p>
-
-         <div class="button">
-            <button type="submit" mat-button>Login</button>
-         </div>
-      </form>
+      <app-form (sendForm)="login($event)" />
    </mat-card-content>
 </mat-card>

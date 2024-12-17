@@ -1,0 +1,17 @@
+<form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+   <p>
+      <mat-form-field class="w-full">
+         <input type="text" matInput placeholder="Username" formControlName="userName" autocomplete="username"/>
+      </mat-form-field>
+   </p>
+
+   <p>
+      <mat-form-field class="w-full">
+        <input type="password" matInput placeholder="Password" formControlName="password" autocomplete="current-password"/>
+      </mat-form-field>
+   </p>
+
+   <div class="button">
+      <button type="submit" mat-button>Login</button>
+   </div>
+</form>

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { USER_REPOSITORY } from '../infrastructure/user.provider';
+import { USER_REPOSITORY, USER_TOKEN } from '../infrastructure/user.provider';
 import { UserRepository } from '../domain/user.repository';
 import { Observable } from 'rxjs';
 import { UserModel } from '../domain/user.model';
@@ -8,7 +8,7 @@ import { UserModel } from '../domain/user.model';
    providedIn: 'root'
 })
 export class UserService {
-   constructor(@Inject(USER_REPOSITORY) private _userRepository: UserRepository){}
+   constructor(@Inject(USER_TOKEN) private _userRepository: UserRepository){}
 
    /**
     * Retrieves a worker by their ID.
