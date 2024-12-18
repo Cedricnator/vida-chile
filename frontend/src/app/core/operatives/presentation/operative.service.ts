@@ -22,7 +22,8 @@ export class OperativeService {
       return this._operativeRepository.deleteOperative(id);
    }
 
-   public updateOperative(): Observable<any>{
+   public updateOperative(operative: any): Observable<any>{
+      console.log(operative);
       return this._operativeRepository.updateOperative();
    }
 
