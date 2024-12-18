@@ -3,6 +3,7 @@ import { OperativeService } from '../../core/operatives/presentation/operative.s
 import { AsyncPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-operatives',
@@ -10,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     AsyncPipe,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './operatives.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

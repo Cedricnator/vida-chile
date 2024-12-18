@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav  flex flex-col h-full" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -10,16 +10,29 @@
       </div>
     </mat-toolbar>
     <hr>
-    <mat-nav-list>
-      @for (item of menuItems(); track $index) {
-        <a mat-list-item 
-        [routerLink]="item.path" 
-        routerLinkActive="router-link-active"
-        [routerLinkActiveOptions]="{exact: true}">
-          {{item.label}}
+    <div class="main-navigation-container">
+      <mat-nav-list class="flex-1 custom-nav-list-start" >
+        @for (item of menuItems(); track $index) {
+          <a mat-list-item 
+            [routerLink]="item.path" 
+            routerLinkActive="router-link-active"
+            [routerLinkActiveOptions]="{exact: true}"
+            >
+            <mat-icon class="material-symbols-outlined mr-2">{{item.icon}}</mat-icon>
+            {{item.label}}
+          </a>
+        }
+      </mat-nav-list>
+    </div>
+    <div class="logout-container">
+      <mat-nav-list class="mt-auto custom-nav-list-final">
+        <hr class="my-2">
+        <a mat-list-item [routerLink]="logoutItem().path" class="flex items-center justify-center">
+          <mat-icon class="material-symbols-outlined mr-2 flex items-center">{{logoutItem().icon}}</mat-icon>
+          {{logoutItem().label}}
         </a>
-      }
-    </mat-nav-list>
+      </mat-nav-list>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="flex justify-between items-center">

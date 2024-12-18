@@ -13,7 +13,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     NavigationComponent
   ],
   template: `
-    <navigation [menuItems]="menuItems()" [bloodBankName]="bloodBank()?.name">
+    <navigation [menuItems]="menuItems()" [bloodBankName]="bloodBank()?.name" [logoutItem]="logoutItem()">
       <router-outlet />
     </navigation>
   `,
@@ -32,7 +32,7 @@ export class LayoutComponent {
     ),
     new MenuItem(
       'Operativos',
-      'location_away',
+      'event',
       'operatives'
     ),
     new MenuItem(
@@ -40,10 +40,13 @@ export class LayoutComponent {
       'description',
       'forms'
     ),
+  ]).asReadonly()
+
+  public logoutItem = signal<MenuItem>(
     new MenuItem(
       'Cerrar Sesión',
       'logout',
       '/auth/login'
     )
-  ]).asReadonly()
+  )
 }

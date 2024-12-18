@@ -2,14 +2,12 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { OperativeService } from '../../../core/operatives/presentation/operative.service';
 import { CreateOperativeParams } from '../../../core/operatives/domain/operative.model';
-import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormField, MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
-import { DialogRef } from '@angular/cdk/dialog';
-import { Overlay } from '@angular/cdk/overlay';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -46,7 +44,7 @@ export class AddOperativeComponent {
     addressId: [],
   })
 
-  addOperative() {
+  addOperative(): void {
     if (!this.addOperativeForm.valid) return;
     const operative: CreateOperativeParams = {
       name: this.addOperativeForm.get('name')?.value,
@@ -58,7 +56,9 @@ export class AddOperativeComponent {
       bloodBankId: 1,
       workerId: 1
     }
-    this.operativeService.createOperative(operative);
-    this.dialogRef.close(operative);
+    this.operativeService.createOperative(operative)
+    .subscribe({
+      complete: () => this.dialogRef.close(operative)
+    });
   }
 }

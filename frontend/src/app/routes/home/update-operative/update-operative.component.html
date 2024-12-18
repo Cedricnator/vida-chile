@@ -1,1 +1,41 @@
-<p>update-operative works!</p>
+<h2 mat-dialog-title class="mb-4">Actualizar Operativo</h2>
+
+<mat-dialog-content class="mat-typography">
+   <form [formGroup]="updateOperativeForm" class="flex flex-col gap-4 min-w-[400px] pt-4">
+      <mat-form-field appearance="fill">
+         <mat-label>Nombre</mat-label>
+         <input matInput formControlName="name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+         <mat-label>Fecha de Inicio</mat-label>
+         <input matInput [matDatepicker]="startPicker" formControlName="startDate" required>
+         <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+         <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+         <mat-label>Fecha de Término</mat-label>
+         <input matInput [matDatepicker]="endPicker" formControlName="endDate" required>
+         <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+         <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+         <mat-label>Descripción</mat-label>
+         <textarea matInput formControlName="description" rows="3"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+         <mat-label>Dirección ID</mat-label>
+         <input matInput type="number" formControlName="addressId" required>
+      </mat-form-field>
+   </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+   <button mat-button mat-dialog-close>Cancelar</button>
+   <button mat-raised-button color="primary" [disabled]="!updateOperativeForm.valid" (click)="updateOperative()">
+      Actualizar
+   </button>
+</mat-dialog-actions>

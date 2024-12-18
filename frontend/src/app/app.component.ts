@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,6 +9,12 @@ import { RouterOutlet } from '@angular/router';
   template: `<router-outlet />`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  private matIconReg = inject(MatIconRegistry);
+  
   title = 'frontend';
+  
+  ngOnInit(): void {
+    this.matIconReg.setDefaultFontSetClass('material-icons-outlined');
+  }
 }

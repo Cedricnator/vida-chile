@@ -14,3 +14,20 @@ mat-icon {
    width: 100%;
    align-items: center;
 }
+
+:host ::ng-deep .mat-mdc-table {
+   background: transparent !important;
+ }
+ 
+ :host ::ng-deep .mat-mdc-header-cell {
+   font-weight: 600;
+   color: #4B5563;
+ }
+ 
+ :host ::ng-deep .mat-mdc-paginator {
+   background: transparent;
+ }
+ 
+ :host ::ng-deep .mat-mdc-row:hover {
+   background-color: #F9FAFB;
+ }

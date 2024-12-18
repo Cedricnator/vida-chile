@@ -1,11 +1,15 @@
 import { DialogModule } from '@angular/cdk/dialog';
-import { Overlay, OverlayModule } from '@angular/cdk/overlay';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { OperativeService } from '../../../core/operatives/presentation/operative.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-update-operative',
@@ -14,16 +18,39 @@ import { MatDialogModule } from '@angular/material/dialog';
     DialogModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatButtonModule,
-    OverlayModule
+    MatIconModule,
+    MatInputModule,
+    OverlayModule,
+    MatFormFieldModule
   ],
   templateUrl: './update-operative.component.html',
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    Overlay
-  ],
+    provideNativeDateAdapter()
+  ]
+  
 })
 export class UpdateOperativeComponent {
+  private readonly dialogRef = inject(MatDialogRef<UpdateOperativeComponent>);
+  private readonly operativeService = inject(OperativeService);
+  private readonly fb = inject(FormBuilder);
+
+  public updateOperativeForm: FormGroup = this.fb.group({
+    name: [],
+    startDate: [],
+    endDate: [],
+    image: [],
+    description: [],
+    addressId: [],
+  })
+
+  public updateOperative(): void {
+    if (!this.updateOperativeForm.valid) return;
+
+  }
 
 }

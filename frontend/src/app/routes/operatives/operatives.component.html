@@ -1,26 +1,35 @@
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 bg-gray-50">
    @for (operative of operative$ | async; track $index) {
-
-   <mat-card class="example-card" appearance="outlined">
-      <mat-card-header>
-         <div mat-card-avatar class="example-header-image"></div>
-         <mat-card-title>Shiba Inu</mat-card-title>
-         <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-         <p>
-            {{ operative.name }}
+   <mat-card class="group h-[400px] flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl rounded-xl overflow-hidden" appearance="raised">
+      <div class="h-64 relative overflow-hidden">
+         <img 
+            mat-card-image 
+            [src]="operative.image" 
+            alt="Operative image"
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+         >
+         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-300"></div>
+         <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+            <span class="text-2xl font-bold block">{{ operative.name }}</span>
+         </div>
+      </div>
+      <mat-card-content class="flex-grow p-6 bg-white">
+         <p class="text-gray-600 line-clamp-2 group-hover:line-clamp-none transition-all duration-300 text-lg">
+            {{ operative.description }}
          </p>
       </mat-card-content>
-      <mat-card-actions>
-         <button mat-button>LIKE</button>
-         <button mat-button>SHARE</button>
+      <mat-card-actions class="p-4 flex justify-end gap-3 bg-white">
+         <button mat-raised-button color="primary" class="px-6 transform hover:scale-105 transition-transform duration-200">
+            <mat-icon class="material-symbols-outlined mr-2">edit</mat-icon>
+            Editar
+         </button>
+         <button mat-raised-button color="warn" class="px-6 transform hover:scale-105 transition-transform duration-200">
+            <mat-icon class="material-symbols-outlined mr-2">delete</mat-icon>
+            Eliminar
+         </button>
       </mat-card-actions>
    </mat-card>
-
    }@empty {
-      <span>No operatives found</span>
+      <span class="col-span-full text-center text-gray-500 text-xl py-12">No se encontraron operativos</span>
    }
 </div>

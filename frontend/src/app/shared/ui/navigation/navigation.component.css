@@ -4,7 +4,7 @@
 
 .sidenav {
   width: 200px;
-  box-shadow: 2px 6px 10px rgba(0,0,2, .10);
+  box-shadow: 2px 6px 10px rgba(0,0,1, .2);
 }
 
 .sidenav .mat-toolbar {
@@ -19,10 +19,29 @@
 }
 
 .main-content {
+  flex: 1;
   margin: 20px 20px auto;
 }
 
 .router-link-active{
-  background-color: #E62525;
+  background-color: #fc5151cc;
   color: white;
+}
+
+.custom-nav-list-start{
+  flex: 1 1 0%;
+ 
+}
+
+.custom-nav-list-final{
+  margin-top: auto;
+ 
+}
+
+.main-navigation-container{
+  flex: 1;
+}
+
+.logout-container {
+  margin-top: auto;
 }

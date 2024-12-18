@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OperativeRepository } from '../domain/operative.repository';
-import { catchError, Observable, of, throwError } from 'rxjs';
+import {  Observable, of, throwError } from 'rxjs';
 import { CreateOperativeParams, OperativeModel } from '../domain/operative.model';
 
 const operatives: OperativeModel[] = [
@@ -9,7 +9,7 @@ const operatives: OperativeModel[] = [
       "name": "Operativo Temuco",
       "startDate": new Date(Date.now()),
       "endDate":   new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      "image": null,
+      "image": 'https://i.imgur.com/Ya0FS5k.jpeg',
       "description": "Segundo operativo en Temuco",
       "workerId": 1,
       "address": "Manuel Montt,Temuco",
@@ -20,7 +20,7 @@ const operatives: OperativeModel[] = [
       "name": "Operativo Loncoche",
       "startDate": new Date(Date.now()),
       "endDate":   new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      "image": null,
+      "image": 'https://i.imgur.com/oSNDtKB.jpeg',
       "description": "Primer operativo en loncoche",
       "workerId": 1,
       "address": "Manuel Montt, Loncoche",
@@ -31,7 +31,7 @@ const operatives: OperativeModel[] = [
       "name": "Operativo Tolten",
       "startDate": new Date(Date.now()),
       "endDate":   new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      "image": null,
+      "image": 'https://i.imgur.com/esHoHB1.jpeg',
       "description": "Primer operativo en Tolten",
       "workerId": 1,
       "address": "Manuel Montt, Tolten",
@@ -42,7 +42,7 @@ const operatives: OperativeModel[] = [
       "name": "Operativo Padre las Casas",
       "startDate": new Date(Date.now()),
       "endDate":   new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      "image": null,
+      "image": 'https://i.imgur.com/2d6X1jM.jpeg',
       "description": "Primer operativo en Tolten",
       "workerId": 1,
       "address": "Arturo Pratt, Temuco",
