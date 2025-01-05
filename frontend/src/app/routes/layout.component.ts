@@ -4,6 +4,7 @@ import { NavigationComponent } from '../shared/ui/navigation/navigation.componen
 import { MenuItem } from './menu-item.model';
 import { BloodBankService } from '../core/bloodbank/presentation/bloodbank.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { AuthService } from '../core/auth/presentation/auth.service';
 
 @Component({
   selector: 'layout',
@@ -13,16 +14,21 @@ import { toSignal } from '@angular/core/rxjs-interop';
     NavigationComponent
   ],
   template: `
-    <navigation [menuItems]="menuItems()" [bloodBankName]="bloodBank()?.name" [logoutItem]="logoutItem()">
+    <navigation 
+      [menuItems]="menuItems()" 
+      [bloodBankName]="" 
+      [logoutItem]="logoutItem()" 
+      (logoutEvent)="logout()"
+    >
       <router-outlet />
     </navigation>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent {
-  private readonly bloodBankService = inject(BloodBankService);
-
-  public bloodBank = toSignal(this.bloodBankService.getBloodBank(1));
+  private readonly authService = inject(AuthService);
+  //private readonly bloodBankService = inject(BloodBankService);
+  //public bloodBank = toSignal(this.bloodBankService.getBloodBank(1));
 
   public menuItems = signal<MenuItem[]>([
     new MenuItem(
@@ -35,11 +41,6 @@ export class LayoutComponent {
       'event',
       'operatives'
     ),
-    new MenuItem(
-      'Formularios',
-      'description',
-      'forms'
-    ),
   ]).asReadonly()
 
   public logoutItem = signal<MenuItem>(
@@ -49,4 +50,17 @@ export class LayoutComponent {
       '/auth/login'
     )
   )
+
+  logout(){
+    this.authService
+      .logout()
+      .subscribe({
+        next: (resp) => {
+          console.log(resp)
+        },
+        error: (err) => {
+          console.error(err)
+        }
+      })
+  }
 }

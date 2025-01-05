@@ -24,8 +24,17 @@
 }
 
 .router-link-active{
-  background-color: #fc5151cc;
+  background-color: #A60101;
   color: white;
+}
+
+.router-link-active span {
+  color: white;
+  font-weight: bold;
+}
+
+.router-link-active .material-symbols-outlined {
+  color: white !important;
 }
 
 .custom-nav-list-start{
@@ -44,4 +53,14 @@
 
 .logout-container {
   margin-top: auto;
+}
+
+
+a.mat-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.mat-icon.material-symbols-outlined {
+  vertical-align: middle;
 }

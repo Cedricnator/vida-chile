@@ -19,7 +19,7 @@ RUN npm install --frozen-lockfile
 COPY . .
 
 # Build the Angular application
-RUN npm run build --configuration="$configuration"
+RUN npm run build -- --configuration="$configuration"
 
 # Stage 2: Serve the application with Nginx
 FROM nginx:alpine

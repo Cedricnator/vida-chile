@@ -1,3 +1,4 @@
+<button mat-raised-button color="primary" class="mx-8 z-0" (click)="createOperative()">Agregar Operativo</button>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 bg-gray-50">
    @for (operative of operative$ | async; track $index) {
    <mat-card class="group h-[400px] flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl rounded-xl overflow-hidden" appearance="raised">

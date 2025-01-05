@@ -13,13 +13,14 @@ export class AuthApiService implements AuthRepository {
    private readonly _baseUrl = this._domainUrl + this._apiUrl
    
    public login(userName: string, password: string): Observable<LoginApiResponse> {
-      return this._http.post<LoginApiResponse>(`${this._baseUrl}/api/v1/login`, {
+      console.log(userName, password)
+      return this._http.post<LoginApiResponse>(`${this._baseUrl}/v1/auth/login`, {
          username: userName,
          password: password
       })
    }
 
    public logout(): Observable<LogoutApiResponse> {
-      return this._http.post<LogoutApiResponse>(`${this._baseUrl}/api/v1/logout`, {})
+      return this._http.post<LogoutApiResponse>(`${this._baseUrl}/v1/auth/logout`, {})
    }
 }

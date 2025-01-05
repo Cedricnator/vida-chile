@@ -1,17 +1,17 @@
-<form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+<form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()" class="w-[30rem] mt-8">
    <p>
       <mat-form-field class="w-full">
-         <input type="text" matInput placeholder="Username" formControlName="userName" autocomplete="username"/>
+         <input type="text" matInput placeholder="Nombre de usuario" formControlName="userName" autocomplete="username"/>
       </mat-form-field>
    </p>
 
    <p>
       <mat-form-field class="w-full">
-        <input type="password" matInput placeholder="Password" formControlName="password" autocomplete="current-password"/>
+        <input type="password" matInput placeholder="Contraseña" formControlName="password" autocomplete="current-password"/>
       </mat-form-field>
    </p>
 
    <div class="button">
-      <button type="submit" mat-button>Login</button>
+      <button type="submit" mat-raised-button class="w-full">Iniciar sesion</button>
    </div>
 </form>

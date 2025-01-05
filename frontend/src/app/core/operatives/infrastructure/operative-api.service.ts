@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { OperativeRepository } from '../domain/operative.repository';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { OperativeModel } from '../domain/operative.model';
+import { CreateOperativeParams, OperativeModel } from '../domain/operative.model';
 
 @Injectable()
 export class OperativeApiService implements OperativeRepository {
@@ -12,20 +12,22 @@ export class OperativeApiService implements OperativeRepository {
    private readonly _apiUrl = environment.api_url;
    private readonly _baseUrl = this._domainUrl + this._apiUrl;
    
-   createOperative(): Observable<any> {
-      return this._http.post(`${this._baseUrl}/api/v1/operative`, {})
+   createOperative(params: CreateOperativeParams): Observable<any> {
+      return this._http.post(`${this._baseUrl}/v1/operative/`, {
+         ...params
+      })
    }
    
    getOperatives(): Observable<any> {
-      return this._http.get(`${this._baseUrl}/api/v1/operative`)
+      return this._http.get(`${this._baseUrl}/v1/operative/`)
    }
 
    getOperative(id: number): Observable<OperativeModel> {
-      return this._http.get<OperativeModel>(`${this._baseUrl}/api/vi/operative/${id}`)
+      return this._http.get<OperativeModel>(`${this._baseUrl}/vi/operative/${id}`)
    }
    
    deleteOperative(id: number): Observable<any> {
-      return this._http.get(`${this._baseUrl}/api/v1/operative/${id}`)
+      return this._http.get(`${this._baseUrl}/v1/operative/${id}`)
    }
 
    updateOperative(): Observable<any> {

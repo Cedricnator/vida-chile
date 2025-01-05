@@ -4,6 +4,8 @@ import { AsyncPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { AddOperativeComponent } from '../home/add-operative/add-operative.component';
 
 @Component({
   selector: 'app-operatives',
@@ -19,6 +21,17 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class OperativesComponent {
   private readonly operativeService = inject(OperativeService);
+  private readonly dialog = inject(MatDialog);
   public operative$ = this.operativeService.getOperatives();
+  
+
+  createOperative(){
+    this.dialog.open(AddOperativeComponent, {
+      height: '80%',
+      width: '80%',
+      exitAnimationDuration: '350ms',
+      enterAnimationDuration: '350ms'
+    });
+  }
   
 }

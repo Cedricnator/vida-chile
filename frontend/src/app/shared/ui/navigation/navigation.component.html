@@ -5,8 +5,8 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>
       <div class="flex items-center justify-evenly">
-        <img src="sangrita.png" alt="" class="w-12 h-16" />
-        <span class="text-[#FF0000] font-bold">VidaChile</span>
+        <img src="sangrita.png" alt="" class="w-8 h-10" />
+        <span class="text-[#FF0000] font-bold">Vida Chile</span>
       </div>
     </mat-toolbar>
     <hr>
@@ -19,7 +19,7 @@
             [routerLinkActiveOptions]="{exact: true}"
             >
             <mat-icon class="material-symbols-outlined mr-2">{{item.icon}}</mat-icon>
-            {{item.label}}
+            <span>{{item.label}}</span>
           </a>
         }
       </mat-nav-list>
@@ -27,7 +27,7 @@
     <div class="logout-container">
       <mat-nav-list class="mt-auto custom-nav-list-final">
         <hr class="my-2">
-        <a mat-list-item [routerLink]="logoutItem().path" class="flex items-center justify-center">
+        <a mat-list-item [routerLink]="logoutItem().path" class="flex items-center justify-center" (click)="onLogout()">
           <mat-icon class="material-symbols-outlined mr-2 flex items-center">{{logoutItem().icon}}</mat-icon>
           {{logoutItem().label}}
         </a>
@@ -35,7 +35,7 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="flex justify-between items-center">
+    <mat-toolbar color="primary" class="flex justify-between items-center z-50">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -44,10 +44,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="text-[#E62525] ml-auto pr-6">{{ bloodBankName() }}</span> 
+      <span class="text-black ml-auto pr-6">{{ bloodBankName() }}</span> 
     </mat-toolbar>
     <div class="main-content">
       <ng-content></ng-content>
     </div>
-</mat-sidenav-content>
+  </mat-sidenav-content>
 </mat-sidenav-container>

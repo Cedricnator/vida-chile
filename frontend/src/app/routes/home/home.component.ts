@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, inject, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, inject, ViewChild } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { OperativeService } from '../../core/operatives/presentation/operative.service';
 import { DatePipe } from '@angular/common';
@@ -33,7 +33,11 @@ export class HomeComponent implements AfterViewInit {
   private readonly operativeService = inject(OperativeService);
   private readonly dialog = inject(MatDialog);
 
-  public operative$ = toSignal(this.operativeService.getOperatives(), { initialValue: [] });
+  constructor(){
+    this.operativeService.getOperatives().subscribe();
+  }
+
+  public operative$ = toSignal(this.operativeService.getOperativesStream(), { initialValue: [] });
   
   displayedColumns: string[] = ['position', 'name', 'address', 'startDate', 'endDate', 'actions'];
   dataSource = new MatTableDataSource<OperativeModel>(this.operative$());
@@ -42,6 +46,15 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  operativeIndicator(operatives: OperativeModel[]){
+    const today = new Date();
+
+    return operatives.filter(operative => {
+      const endDate = new Date(operative.endDate);
+      return endDate > today;
+    }).length;
   }
 
   addOperative() {

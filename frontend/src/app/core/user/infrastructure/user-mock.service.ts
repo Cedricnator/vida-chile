@@ -12,12 +12,26 @@ export class UserMockService implements UserRepository {
     * @returns An Observable that emits the mock user data.
     */
    public getWorkerById(id: number): Observable<UserModel> {
-      const mockUser = {
+      const mockUser: UserModel = {
          "id": 1,
          "name": "cedric",
          "lastName": "kirmayr",
          "email": "cedricnator@cedric.dev",
-         "bloodBank": null
+         "bloodBank": {
+            id: 1,
+            name: 'Banco de Sangre Ufro',
+            description: 'Banco de Sangre de la Universidad de la Frontera',
+            image: '',
+            "address": {
+               id: 1,
+               street: "Manuel Montt",
+               city: {
+                  id: 1,
+                  name: "Temuco"
+               },
+               number: 115,
+            },
+         }
       }
       return of(mockUser);
    }

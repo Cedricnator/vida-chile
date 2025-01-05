@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input, } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, output, } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -33,8 +33,13 @@ export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
   public menuItems = input.required<IMenuItems[]>();
   public logoutItem = input.required<IMenuItems>();
+  public logoutEvent = output();
 
-  public bloodBankName = input<string>();
+  public bloodBankName = input<string>(); 
+
+  onLogout(){
+    this.logoutEvent.emit()
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

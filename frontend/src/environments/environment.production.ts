@@ -1,7 +1,7 @@
 import { Environment } from "./environment.interface";
 
 export const environment: Environment = {
-   env:        "production",
-   domain_url: "https://",
-   api_url:    "200."
+   env:        "staging",
+   domain_url: "http://localhost:",
+   api_url:    "8080"
 }

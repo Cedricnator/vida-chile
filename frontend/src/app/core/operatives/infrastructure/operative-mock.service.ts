@@ -64,6 +64,7 @@ export class OperativeMockService implements OperativeRepository {
          image: params.image,
          workerId: params.workerId,
       }
+      operatives.push(newOperative);
       return of(newOperative);
    }
    

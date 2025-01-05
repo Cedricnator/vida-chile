@@ -1,5 +1,12 @@
-<mat-card >
-   <mat-card-title>Iniciar Sesión</mat-card-title>
+<mat-card class="w-[40rem] h-[30rem]">
+   <mat-card-title>
+      <div class="flex items-center">
+         <img src="sangrita.png" alt="" width="30" height="25">
+         <span class="text-[#FF0000] font-bold">
+            Vida Chile
+         </span>
+      </div>
+   </mat-card-title>
    <mat-card-content>
       <app-form (sendForm)="login($event)" />
    </mat-card-content>
